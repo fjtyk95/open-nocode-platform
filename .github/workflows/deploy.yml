@@ -24,12 +24,8 @@ jobs:
       env:
         NODE_ENV: production
         
-    # デプロイ先に応じて以下を変更
-    # 例: AWS、Heroku、Azure など
-    - name: Deploy to production
-      run: |
-        # デプロイスクリプト
-        echo "Deploying to production server"
-      env:
-        # 本番環境の認証情報
-        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }} 
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages
+        folder: build
